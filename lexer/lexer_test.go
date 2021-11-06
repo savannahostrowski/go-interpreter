@@ -1,16 +1,17 @@
 package lexer
 
-import ( "testing"
+import (
+	"testing"
 
-		"go-interpreter/token"
+	"go-interpreter/token"
 )
 
 func TestNextToken(t *testing.T) {
 	input := `=+(){},;`
 
 	tests := []struct {
-		expectedType	token.TokenType
-		expectedLiteral	string
+		expectedType    token.TokenType
+		expectedLiteral string
 	}{
 		{token.ASSIGN, "="},
 		{token.PLUS, "+"},
@@ -23,7 +24,7 @@ func TestNextToken(t *testing.T) {
 		{token.EOF, ""},
 	}
 
-	l:= New(input)
+	l := New(input)
 
 	for i, tt := range tests {
 		tok := l.NextToken()
